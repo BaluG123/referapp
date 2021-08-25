@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% include 'testapp/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+{% for app in apps_list %}
+{% if app.logo %}
+<h2 style="margin-left: 25px;">{{app.appname}}</h2>
+<img src="{{app.logo.url}}" alt="" height="auto" width="300px" style="margin-left: 25px;">
+<p style="width:300px;margin-left:25px;">{{app.description}}</p>
+<div class="andriod">
+    <a style="margin-left: 25px;text-decoration: none;" href="{{app.andriod_link}}">click here to download (Andriod) </a>
+    <p style="margin-left: 25px;">Rating: {{app.andriod_rate}}/5</p>
+</div>
+<div class="ios">
+    <a style="margin-left: 25px;text-decoration: none;" href="{{app.ios_link}}">click here to download (IOS) </a>
+    <p style="margin-left: 25px;">Rating: {{app.ios_rate}}/5</p>
+</div>
+</div>
+</div><hr>
+{% endif %} 
+{% endfor %}
+{% endblock %}
